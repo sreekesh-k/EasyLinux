@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Custom AlertDialog Theme -->
+
+    <style name="CustomAlertDialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <!-- Dialog background with rounded corners and border -->
+        <item name="android:background">#0E1226</item>
+        <!-- Title text color and font -->
+        <item name="android:textColorPrimary">@color/white</item> <!-- White title text -->
+        <item name="android:fontFamily">@font/poppins_bold</item> <!-- Poppins Bold font for title -->
+
+        <!-- Button style -->
+        <item name="buttonBarPositiveButtonStyle">@style/CustomDialogButton</item>
+        <item name="buttonBarNegativeButtonStyle">@style/CustomDialogButton</item> <!-- Optional: Style for negative buttons -->
+    </style>
+
+    <!-- Custom text appearance for title -->
+    <style name="CustomDialogTitleText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">#FFFFFF</item> <!-- White title text -->
+        <item name="android:fontFamily">@font/poppins_bold</item> <!-- Poppins Bold font for title -->
+        <item name="android:textSize">20sp</item> <!-- Optional: Font size for title -->
+    </style>
+
+    <!-- Custom text appearance for message -->
+    <style name="CustomDialogMessageText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">#FFFFFF</item> <!-- White message text -->
+        <item name="android:fontFamily">@font/poppins_regular</item> <!-- Poppins Regular font for messages -->
+        <item name="android:textSize">16sp</item> <!-- Optional: Font size for message -->
+    </style>
+
+    <!-- Style for dialog buttons -->
+    <style name="CustomDialogButton" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">#5a4da3</item> <!-- Purple button text color -->
+        <item name="android:fontFamily">@font/poppins_bold</item> <!-- Poppins Bold font for buttons -->
+    </style>
+</resources>

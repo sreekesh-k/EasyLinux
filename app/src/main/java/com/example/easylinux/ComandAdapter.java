@@ -34,10 +34,15 @@ public class ComandAdapter extends RecyclerView.Adapter<ComandAdapter.CommandVie
 
         // Show a popup on click with description and example
         holder.itemView.setOnClickListener(v -> {
-            android.app.AlertDialog.Builder dialog = new android.app.AlertDialog.Builder(context);
+            android.app.AlertDialog.Builder dialog = new android.app.AlertDialog.Builder(context, R.style.CustomAlertDialogTheme);
+
             dialog.setTitle(command.getTitle());
             dialog.setMessage(command.getDescription() + "\n\nExample: " + command.getExample());
-            dialog.setPositiveButton("OK", null);
+
+            dialog.setPositiveButton("OK", (dialogInterface, which) -> {
+                // Handle OK button click
+            });
+
             dialog.show();
         });
     }

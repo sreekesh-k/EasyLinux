@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/rounded_searchview.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#EDFFFFFF" /> <!-- Background color (semi-transparent white) -->
+
+    <!-- Set corner radius for rounded edges -->
+    <corners android:radius="16dp" />
+
+    <!-- Optional border -->
+    <stroke
+        android:width="4dp"
+        android:color="@color/secondary" /> <!-- Border color -->
+
+    <!-- Optional padding (if needed) -->
+    <padding
+        android:left="10dp"
+        android:right="10dp" />
+</shape>

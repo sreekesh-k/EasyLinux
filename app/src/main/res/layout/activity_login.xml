@@ -19,6 +19,7 @@
         android:fontFamily="@font/poppins_bold"
         android:onClick="loginCheck"
         android:text="@string/login"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +81,8 @@
         android:text="@string/username"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/UserName"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/UserName" />
 
     <TextView
         android:id="@+id/textView3"
@@ -91,6 +93,7 @@
         android:text="@string/password"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/pass"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/pass" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
