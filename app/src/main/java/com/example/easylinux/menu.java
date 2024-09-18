@@ -15,10 +15,25 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
+
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.Button;
+import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.RecyclerView;
+import java.util.List;
+import java.util.stream.Collectors;
+
+
 public class menu extends AppCompatActivity {
 
+
     private RecyclerView recyclerView;
+    private ComandAdapter adapter;
     private List<Comands> commandList = new ArrayList<>();
+    private List<Comands> filteredList = new ArrayList<>();
+    private SearchView searchView;
+    private Button searchButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,13 +41,45 @@ public class menu extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         recyclerView = findViewById(R.id.recyclerView);
+        searchView = findViewById(R.id.searchView);
+        searchButton = findViewById(R.id.searchButton);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         loadJsonFromAsset();
 
-        ComandAdapter adapter = new ComandAdapter(this, commandList);
+        adapter = new ComandAdapter(this, commandList);
         recyclerView.setAdapter(adapter);
+
+        // Search functionality
+        searchButton.setOnClickListener(v -> filterCommands(searchView.getQuery().toString()));
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                filterCommands(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // Optional: you can also filter as the text changes
+                return false;
+            }
+        });
     }
+
+    private void filterCommands(String query) {
+        if (query == null || query.isEmpty()) {
+            adapter.updateList(commandList);
+        } else {
+            filteredList = commandList.stream()
+                    .filter(command -> command.getTitle().toLowerCase().contains(query.toLowerCase()))
+                    .collect(Collectors.toList());
+            adapter.updateList(filteredList);
+        }
+    }
+
 
     // Load JSON data from the assets folder
     private void loadJsonFromAsset() {

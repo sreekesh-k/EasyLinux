@@ -47,6 +47,11 @@ public class ComandAdapter extends RecyclerView.Adapter<ComandAdapter.CommandVie
         return commandList.size();
     }
 
+    public void updateList(List<Comands> newList) {
+        commandList = newList;
+        notifyDataSetChanged();
+    }
+
     public static class CommandViewHolder extends RecyclerView.ViewHolder {
         TextView titleTextView, commandTextView;
 
