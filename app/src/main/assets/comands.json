@@ -1,0 +1,1052 @@
+[
+  {
+    "id": 1,
+    "title": "List Directory Contents",
+    "command": "ls",
+    "description": "The 'ls' command lists directory contents. You can use options to show detailed information, hidden files, and sort the output in various ways.",
+    "example": "ls -al /home/user"
+  },
+  {
+    "id": 2,
+    "title": "Change Directory",
+    "command": "cd",
+    "description": "The 'cd' command changes the current directory to a specified path. Use '..' to move up one level, or specify an absolute or relative path.",
+    "example": "cd /usr/local/bin"
+  },
+  {
+    "id": 3,
+    "title": "Print Working Directory",
+    "command": "pwd",
+    "description": "The 'pwd' command prints the full path of the current working directory, which is useful to confirm where you are in the file system.",
+    "example": "pwd"
+  },
+  {
+    "id": 4,
+    "title": "Create Directory",
+    "command": "mkdir",
+    "description": "The 'mkdir' command creates one or more directories. You can also use the '-p' option to create parent directories as needed.",
+    "example": "mkdir -p /home/user/new_folder"
+  },
+  {
+    "id": 5,
+    "title": "Remove Directory",
+    "command": "rmdir",
+    "description": "The 'rmdir' command removes empty directories. To delete non-empty directories, use the 'rm' command with the '-r' option.",
+    "example": "rmdir /home/user/empty_folder"
+  },
+  {
+    "id": 6,
+    "title": "Remove Files and Directories",
+    "command": "rm",
+    "description": "The 'rm' command removes files or directories. Use the '-r' option to remove directories and their contents recursively.",
+    "example": "rm -r /home/user/old_folder"
+  },
+  {
+    "id": 7,
+    "title": "Copy Files",
+    "command": "cp",
+    "description": "The 'cp' command copies files or directories. To copy directories, use the '-r' option for recursive copying.",
+    "example": "cp -r /source/directory /destination/directory"
+  },
+  {
+    "id": 8,
+    "title": "Move or Rename Files",
+    "command": "mv",
+    "description": "The 'mv' command moves or renames files or directories. To rename, provide the old and new file names.",
+    "example": "mv oldfile.txt newfile.txt"
+  },
+  {
+    "id": 9,
+    "title": "Display File Contents",
+    "command": "cat",
+    "description": "The 'cat' command displays the contents of a file, combining multiple files, or creating new ones.",
+    "example": "cat file.txt"
+  },
+  {
+    "id": 10,
+    "title": "Search Text in Files",
+    "command": "grep",
+    "description": "The 'grep' command searches for text in files and displays matching lines. Use options like '-r' for recursive search in directories.",
+    "example": "grep 'search_term' /home/user/file.txt"
+  },
+  {
+    "id": 11,
+    "title": "Find Files by Name",
+    "command": "find",
+    "description": "The 'find' command searches for files and directories within the specified directory. You can search by name, size, or other properties.",
+    "example": "find /home -name '*.txt'"
+  },
+  {
+    "id": 12,
+    "title": "Change File Permissions",
+    "command": "chmod",
+    "description": "The 'chmod' command changes the file permissions of a file or directory. It can be used with numeric or symbolic notation.",
+    "example": "chmod 755 /home/user/script.sh"
+  },
+  {
+    "id": 13,
+    "title": "Change File Ownership",
+    "command": "chown",
+    "description": "The 'chown' command changes the ownership of files and directories. You can specify both the user and group ownership.",
+    "example": "chown user:group /home/user/file.txt"
+  },
+  {
+    "id": 14,
+    "title": "Create Symbolic Link",
+    "command": "ln",
+    "description": "The 'ln' command creates a link to a file. By default, it creates hard links, but you can use the '-s' option to create symbolic links.",
+    "example": "ln -s /path/to/file /path/to/link"
+  },
+  {
+    "id": 15,
+    "title": "View Running Processes",
+    "command": "ps",
+    "description": "The 'ps' command provides information about the currently running processes. It is commonly used with the 'aux' options to display all processes.",
+    "example": "ps aux"
+  },
+  {
+    "id": 16,
+    "title": "Terminate a Process",
+    "command": "kill",
+    "description": "The 'kill' command sends a signal to a process, usually to terminate it. You can specify the process ID (PID) to stop it.",
+    "example": "kill 1234"
+  },
+  {
+    "id": 17,
+    "title": "Monitor System Resources",
+    "command": "top",
+    "description": "The 'top' command provides real-time information about the system's resource usage, including CPU and memory usage.",
+    "example": "top"
+  },
+  {
+    "id": 18,
+    "title": "Download Files from the Web",
+    "command": "wget",
+    "description": "The 'wget' command retrieves files from the web using HTTP, HTTPS, and FTP protocols. It is commonly used for downloading large files.",
+    "example": "wget http://example.com/file.zip"
+  },
+  {
+    "id": 19,
+    "title": "Transfer Files via SSH",
+    "command": "scp",
+    "description": "The 'scp' command copies files over SSH. It is useful for securely transferring files between computers on a network.",
+    "example": "scp user@remote:/path/to/file /local/directory"
+  },
+  {
+    "id": 20,
+    "title": "Check Disk Usage",
+    "command": "du",
+    "description": "The 'du' command estimates file space usage, providing a summary of the disk usage of files and directories.",
+    "example": "du -sh /home/user"
+  },
+  {
+    "id": 21,
+    "title": "Display Free Disk Space",
+    "command": "df",
+    "description": "The 'df' command displays the amount of available disk space on the file system, including details about each mounted partition.",
+    "example": "df -h"
+  },
+  {
+    "id": 22,
+    "title": "Archive Files",
+    "command": "tar",
+    "description": "The 'tar' command is used to archive multiple files into one archive file, and extract them when needed. It supports compression with gzip and bzip2.",
+    "example": "tar -cvzf archive.tar.gz /path/to/files"
+  },
+  {
+    "id": 23,
+    "title": "Compress Files",
+    "command": "gzip",
+    "description": "The 'gzip' command compresses files to reduce file size. It is often used with 'tar' to create compressed archive files.",
+    "example": "gzip file.txt"
+  },
+  {
+    "id": 24,
+    "title": "Decompress Files",
+    "command": "gunzip",
+    "description": "The 'gunzip' command decompresses files that were compressed with 'gzip'.",
+    "example": "gunzip file.txt.gz"
+  },
+  {
+    "id": 25,
+    "title": "Change Password",
+    "command": "passwd",
+    "description": "The 'passwd' command changes the password for a user account.",
+    "example": "passwd username"
+  },
+  {
+    "id": 26,
+    "title": "Ping Network Host",
+    "command": "ping",
+    "description": "The 'ping' command checks the connectivity to a network host by sending ICMP echo request packets.",
+    "example": "ping google.com"
+  },
+  {
+    "id": 27,
+    "title": "Display Network Interfaces",
+    "command": "ifconfig",
+    "description": "The 'ifconfig' command displays information about the network interfaces on the system, and can be used to configure them.",
+    "example": "ifconfig eth0"
+  },
+  {
+    "id": 28,
+    "title": "Show Open Network Connections",
+    "command": "netstat",
+    "description": "The 'netstat' command displays active network connections, routing tables, and interface statistics.",
+    "example": "netstat -tuln"
+  },
+  {
+    "id": 29,
+    "title": "Display Current Date and Time",
+    "command": "date",
+    "description": "The 'date' command displays the current date and time. You can also use it to set the system date and time.",
+    "example": "date"
+  },
+  {
+    "id": 30,
+    "title": "Shutdown System",
+    "command": "shutdown",
+    "description": "The 'shutdown' command brings the system down in a secure way. You can specify a time delay or schedule a shutdown.",
+    "example": "shutdown -h now"
+  },
+  {
+    "id": 31,
+    "title": "Reboot System",
+    "command": "reboot",
+    "description": "The 'reboot' command reboots the system. It's often used after performing system maintenance.",
+    "example": "reboot"
+  },
+  {
+    "id": 32,
+    "title": "Search for Packages",
+    "command": "apt-cache search",
+    "description": "The 'apt-cache search' command searches for available packages in the APT package manager repositories.",
+    "example": "apt-cache search vim"
+  },
+  {
+    "id": 33,
+    "title": "Install Packages",
+    "command": "apt-get install",
+    "description": "The 'apt-get install' command installs packages using the APT package manager in Debian-based systems.",
+    "example": "apt-get install curl"
+  },
+  {
+    "id": 34,
+    "title": "Update Package Lists",
+    "command": "apt-get update",
+    "description": "The 'apt-get update' command updates the package lists for upgrades and new installations.",
+    "example": "apt-get update"
+  },
+  {
+    "id": 35,
+    "title": "Upgrade Installed Packages",
+    "command": "apt-get upgrade",
+    "description": "The 'apt-get upgrade' command upgrades all installed packages to the newest available versions.",
+    "example": "apt-get upgrade"
+  },
+  {
+    "id": 36,
+    "title": "Install RPM Packages",
+    "command": "rpm -i",
+    "description": "The 'rpm -i' command installs RPM packages on Red Hat-based distributions.",
+    "example": "rpm -i package.rpm"
+  },
+  {
+    "id": 37,
+    "title": "List Installed RPM Packages",
+    "command": "rpm -qa",
+    "description": "The 'rpm -qa' command lists all installed RPM packages on the system.",
+    "example": "rpm -qa"
+  },
+  {
+    "id": 38,
+    "title": "Check Memory Usage",
+    "command": "free",
+    "description": "The 'free' command displays the total, used, and available system memory.",
+    "example": "free -h"
+  },
+  {
+    "id": 39,
+    "title": "Create a New User",
+    "command": "useradd",
+    "description": "The 'useradd' command creates a new user account.",
+    "example": "useradd newuser"
+  },
+  {
+    "id": 40,
+    "title": "Change User Password",
+    "command": "passwd",
+    "description": "The 'passwd' command changes the password of a user account.",
+    "example": "passwd newuser"
+  },
+  {
+    "id": 41,
+    "title": "Delete a User",
+    "command": "userdel",
+    "description": "The 'userdel' command deletes a user account and optionally the home directory.",
+    "example": "userdel -r newuser"
+  },
+  {
+    "id": 42,
+    "title": "Add a Group",
+    "command": "groupadd",
+    "description": "The 'groupadd' command creates a new group.",
+    "example": "groupadd developers"
+  },
+  {
+    "id": 43,
+    "title": "Add User to Group",
+    "command": "usermod -aG",
+    "description": "The 'usermod -aG' command adds a user to a group.",
+    "example": "usermod -aG developers newuser"
+  },
+  {
+    "id": 44,
+    "title": "Show System Information",
+    "command": "uname -a",
+    "description": "The 'uname -a' command displays detailed information about the system, including kernel version and architecture.",
+    "example": "uname -a"
+  },
+  {
+    "id": 45,
+    "title": "View Disk Partitions",
+    "command": "fdisk -l",
+    "description": "The 'fdisk -l' command lists all disk partitions.",
+    "example": "fdisk -l"
+  },
+  {
+    "id": 46,
+    "title": "Format a Disk",
+    "command": "mkfs",
+    "description": "The 'mkfs' command creates a file system on a partition or disk.",
+    "example": "mkfs.ext4 /dev/sda1"
+  },
+  {
+    "id": 47,
+    "title": "Mount a File System",
+    "command": "mount",
+    "description": "The 'mount' command mounts a file system to a directory.",
+    "example": "mount /dev/sda1 /mnt"
+  },
+  {
+    "id": 48,
+    "title": "Unmount a File System",
+    "command": "umount",
+    "description": "The 'umount' command unmounts a file system from a directory.",
+    "example": "umount /mnt"
+  },
+  {
+    "id": 49,
+    "title": "Check Disk for Errors",
+    "command": "fsck",
+    "description": "The 'fsck' command checks and repairs file systems.",
+    "example": "fsck /dev/sda1"
+  },
+  {
+    "id": 50,
+    "title": "Show IP Address",
+    "command": "ip addr show",
+    "description": "The 'ip addr show' command displays IP addresses for all network interfaces.",
+    "example": "ip addr show"
+  },
+  {
+    "id": 51,
+    "title": "Check System Uptime",
+    "command": "uptime",
+    "description": "The 'uptime' command shows how long the system has been running.",
+    "example": "uptime"
+  },
+  {
+    "id": 52,
+    "title": "Show Command History",
+    "command": "history",
+    "description": "The 'history' command displays a list of previously executed commands.",
+    "example": "history"
+  },
+  {
+    "id": 53,
+    "title": "Display Disk Space Usage",
+    "command": "df -h",
+    "description": "The 'df -h' command displays disk space usage in a human-readable format.",
+    "example": "df -h"
+  },
+  {
+    "id": 54,
+    "title": "Check Available Updates",
+    "command": "apt-get upgrade",
+    "description": "The 'apt-get upgrade' command checks and installs available updates for packages.",
+    "example": "apt-get upgrade"
+  },
+  {
+    "id": 55,
+    "title": "Compress File with bzip2",
+    "command": "bzip2",
+    "description": "The 'bzip2' command compresses files using the bzip2 algorithm.",
+    "example": "bzip2 file.txt"
+  },
+  {
+    "id": 56,
+    "title": "Decompress bzip2 Files",
+    "command": "bunzip2",
+    "description": "The 'bunzip2' command decompresses bzip2 compressed files.",
+    "example": "bunzip2 file.txt.bz2"
+  },
+  {
+    "id": 57,
+    "title": "Monitor Real-Time Logs",
+    "command": "tail -f",
+    "description": "The 'tail -f' command displays new log entries in real-time.",
+    "example": "tail -f /var/log/syslog"
+  },
+  {
+    "id": 58,
+    "title": "Show Last System Boot Logs",
+    "command": "dmesg",
+    "description": "The 'dmesg' command displays the kernel ring buffer logs, including system boot messages.",
+    "example": "dmesg | less"
+  },
+  {
+    "id": 59,
+    "title": "Monitor System Performance",
+    "command": "vmstat",
+    "description": "The 'vmstat' command displays real-time information about system performance, including CPU, memory, and I/O statistics.",
+    "example": "vmstat 1"
+  },
+  {
+    "id": 60,
+    "title": "Schedule a Task with Cron",
+    "command": "crontab",
+    "description": "The 'crontab' command is used to schedule tasks to run at specific times or intervals using cron jobs.",
+    "example": "crontab -e"
+  },
+  {
+    "id": 61,
+    "title": "Show Crontab Entries",
+    "command": "crontab -l",
+    "description": "The 'crontab -l' command lists all cron jobs scheduled for the current user.",
+    "example": "crontab -l"
+  },
+  {
+    "id": 62,
+    "title": "Check System Logs",
+    "command": "journalctl",
+    "description": "The 'journalctl' command is used to query and display logs from the systemd journal.",
+    "example": "journalctl -xe"
+  },
+  {
+    "id": 63,
+    "title": "Enable a Service",
+    "command": "systemctl enable",
+    "description": "The 'systemctl enable' command enables a systemd service to start at boot.",
+    "example": "systemctl enable nginx"
+  },
+  {
+    "id": 64,
+    "title": "Start a Service",
+    "command": "systemctl start",
+    "description": "The 'systemctl start' command starts a systemd service immediately.",
+    "example": "systemctl start apache2"
+  },
+  {
+    "id": 65,
+    "title": "Restart a Service",
+    "command": "systemctl restart",
+    "description": "The 'systemctl restart' command restarts a systemd service.",
+    "example": "systemctl restart ssh"
+  },
+  {
+    "id": 66,
+    "title": "Stop a Service",
+    "command": "systemctl stop",
+    "description": "The 'systemctl stop' command stops a running systemd service.",
+    "example": "systemctl stop apache2"
+  },
+  {
+    "id": 67,
+    "title": "Check Service Status",
+    "command": "systemctl status",
+    "description": "The 'systemctl status' command shows the current status of a systemd service.",
+    "example": "systemctl status mysql"
+  },
+  {
+    "id": 68,
+    "title": "Disable a Service",
+    "command": "systemctl disable",
+    "description": "The 'systemctl disable' command prevents a systemd service from starting at boot.",
+    "example": "systemctl disable nginx"
+  },
+  {
+    "id": 69,
+    "title": "Check Available Disk Space",
+    "command": "df",
+    "description": "The 'df' command reports the disk space usage for file systems. Use '-h' for human-readable output.",
+    "example": "df -h"
+  },
+  {
+    "id": 70,
+    "title": "Kill All Processes by Name",
+    "command": "killall",
+    "description": "The 'killall' command kills all processes by name.",
+    "example": "killall firefox"
+  },
+  {
+    "id": 71,
+    "title": "Check Open Files by Process",
+    "command": "lsof",
+    "description": "The 'lsof' command lists open files and the processes that opened them.",
+    "example": "lsof -u username"
+  },
+  {
+    "id": 72,
+    "title": "Track Network Connections",
+    "command": "ss",
+    "description": "The 'ss' command displays detailed information about network connections and sockets.",
+    "example": "ss -tuln"
+  },
+  {
+    "id": 73,
+    "title": "Flush DNS Cache",
+    "command": "systemd-resolve --flush-caches",
+    "description": "The 'systemd-resolve --flush-caches' command flushes the DNS cache on a system using systemd-resolved.",
+    "example": "systemd-resolve --flush-caches"
+  },
+  {
+    "id": 74,
+    "title": "Show Disk IO Statistics",
+    "command": "iostat",
+    "description": "The 'iostat' command shows CPU and input/output statistics for devices and partitions.",
+    "example": "iostat"
+  },
+  {
+    "id": 75,
+    "title": "Display Detailed Memory Usage",
+    "command": "smem",
+    "description": "The 'smem' command displays detailed memory usage per process.",
+    "example": "smem -r"
+  },
+  {
+    "id": 76,
+    "title": "Check CPU Information",
+    "command": "lscpu",
+    "description": "The 'lscpu' command provides detailed information about the CPU architecture.",
+    "example": "lscpu"
+  },
+  {
+    "id": 77,
+    "title": "Check Kernel Version",
+    "command": "uname -r",
+    "description": "The 'uname -r' command displays the current Linux kernel version.",
+    "example": "uname -r"
+  },
+  {
+    "id": 78,
+    "title": "Display Mounted File Systems",
+    "command": "mount",
+    "description": "The 'mount' command lists all currently mounted file systems.",
+    "example": "mount"
+  },
+  {
+    "id": 79,
+    "title": "Monitor Disk Activity",
+    "command": "iotop",
+    "description": "The 'iotop' command displays a list of processes performing disk I/O, sorted by I/O usage.",
+    "example": "iotop"
+  },
+  {
+    "id": 80,
+    "title": "Search for a File",
+    "command": "locate",
+    "description": "The 'locate' command quickly finds the location of files on your system by searching an index.",
+    "example": "locate .bashrc"
+  },
+  {
+    "id": 81,
+    "title": "Update Locate Database",
+    "command": "updatedb",
+    "description": "The 'updatedb' command updates the database used by the 'locate' command.",
+    "example": "updatedb"
+  },
+  {
+    "id": 82,
+    "title": "Show Disk Usage by File",
+    "command": "du",
+    "description": "The 'du' command shows the disk usage of files and directories.",
+    "example": "du -sh /home/user"
+  },
+  {
+    "id": 83,
+    "title": "Trace Network Path",
+    "command": "traceroute",
+    "description": "The 'traceroute' command shows the route packets take to a network destination.",
+    "example": "traceroute google.com"
+  },
+  {
+    "id": 84,
+    "title": "Check Network Latency",
+    "command": "ping",
+    "description": "The 'ping' command sends ICMP packets to test network connectivity and measure round-trip time.",
+    "example": "ping 8.8.8.8"
+  },
+  {
+    "id": 85,
+    "title": "Download File from Internet",
+    "command": "curl -O",
+    "description": "The 'curl -O' command downloads a file from the internet and saves it with the same name as the source.",
+    "example": "curl -O https://example.com/file.zip"
+  },
+  {
+    "id": 86,
+    "title": "Download with Wget",
+    "command": "wget",
+    "description": "The 'wget' command downloads files from the internet.",
+    "example": "wget https://example.com/file.zip"
+  },
+  {
+    "id": 87,
+    "title": "Create a Swap File",
+    "command": "dd if=/dev/zero of=/swapfile bs=1M count=2048",
+    "description": "The 'dd' command creates a swap file for additional memory.",
+    "example": "dd if=/dev/zero of=/swapfile bs=1M count=2048"
+  },
+  {
+    "id": 88,
+    "title": "Enable Swap Space",
+    "command": "swapon",
+    "description": "The 'swapon' command enables swap space on a file or partition.",
+    "example": "swapon /swapfile"
+  },
+  {
+    "id": 89,
+    "title": "Disable Swap Space",
+    "command": "swapoff",
+    "description": "The 'swapoff' command disables swap space on a file or partition.",
+    "example": "swapoff /swapfile"
+  },
+  {
+    "id": 90,
+    "title": "Change File Owner",
+    "command": "chown",
+    "description": "The 'chown' command changes the ownership of files or directories.",
+    "example": "chown user:group filename"
+  },
+  {
+    "id": 91,
+    "title": "Change File Permissions",
+    "command": "chmod",
+    "description": "The 'chmod' command changes the permissions of a file or directory.",
+    "example": "chmod 755 filename"
+  },
+  {
+    "id": 92,
+    "title": "Change File Timestamps",
+    "command": "touch",
+    "description": "The 'touch' command updates the access and modification times of a file. It can also create an empty file.",
+    "example": "touch newfile.txt"
+  },
+  {
+    "id": 93,
+    "title": "Search Command History",
+    "command": "history",
+    "description": "The 'history' command shows the list of previously executed commands.",
+    "example": "history"
+  },
+  {
+    "id": 94,
+    "title": "Clear Command History",
+    "command": "history -c",
+    "description": "The 'history -c' command clears the shell's command history.",
+    "example": "history -c"
+  },
+  {
+    "id": 95,
+    "title": "Backup Files with Rsync",
+    "command": "rsync",
+    "description": "The 'rsync' command synchronizes files between two locations, useful for backups.",
+    "example": "rsync -avz /source/ /destination/"
+  },
+  {
+    "id": 96,
+    "title": "Create a File Archive",
+    "command": "tar -czvf",
+    "description": "The 'tar -czvf' command compresses files and directories into a single archive file.",
+    "example": "tar -czvf archive.tar.gz /path/to/files"
+  },
+  {
+    "id": 97,
+    "title": "Extract a Tar Archive",
+    "command": "tar -xzvf",
+    "description": "The 'tar -xzvf' command extracts a compressed tar archive.",
+    "example": "tar -xzvf archive.tar.gz"
+  },
+  {
+    "id": 98,
+    "title": "Install a Package",
+    "command": "apt-get install",
+    "description": "The 'apt-get install' command installs software packages on Debian-based systems.",
+    "example": "apt-get install nginx"
+  },
+  {
+    "id": 99,
+    "title": "Update Package List",
+    "command": "apt-get update",
+    "description": "The 'apt-get update' command updates the package lists for upgrades or new installations.",
+    "example": "apt-get update"
+  },
+  {
+    "id": 100,
+    "title": "Upgrade Installed Packages",
+    "command": "apt-get upgrade",
+    "description": "The 'apt-get upgrade' command upgrades all installed packages to their latest versions.",
+    "example": "apt-get upgrade"
+  },
+  {
+    "id": 101,
+    "title": "Remove a Package",
+    "command": "apt-get remove",
+    "description": "The 'apt-get remove' command removes a package from the system.",
+    "example": "apt-get remove apache2"
+  },
+  {
+    "id": 102,
+    "title": "Search for a Package",
+    "command": "apt-cache search",
+    "description": "The 'apt-cache search' command searches for a package in the repositories.",
+    "example": "apt-cache search nginx"
+  },
+  {
+    "id": 103,
+    "title": "Show Package Information",
+    "command": "apt-cache show",
+    "description": "The 'apt-cache show' command displays detailed information about a package.",
+    "example": "apt-cache show nginx"
+  },
+  {
+    "id": 104,
+    "title": "Create a New User",
+    "command": "useradd",
+    "description": "The 'useradd' command adds a new user to the system.",
+    "example": "useradd newuser"
+  },
+  {
+    "id": 105,
+    "title": "Delete a User",
+    "command": "userdel",
+    "description": "The 'userdel' command removes a user account and related files from the system.",
+    "example": "userdel newuser"
+  },
+  {
+    "id": 106,
+    "title": "Change User Password",
+    "command": "passwd",
+    "description": "The 'passwd' command changes a user's password.",
+    "example": "passwd newuser"
+  },
+  {
+    "id": 107,
+    "title": "Check Free Memory",
+    "command": "free -h",
+    "description": "The 'free -h' command displays the amount of free and used memory in the system in human-readable format.",
+    "example": "free -h"
+  },
+  {
+    "id": 108,
+    "title": "Show Network Configuration",
+    "command": "ip a",
+    "description": "The 'ip a' command displays detailed information about the network interfaces.",
+    "example": "ip a"
+  },
+  {
+    "id": 109,
+    "title": "Restart Networking Service",
+    "command": "systemctl restart networking",
+    "description": "The 'systemctl restart networking' command restarts the network service.",
+    "example": "systemctl restart networking"
+  },
+  {
+    "id": 110,
+    "title": "Check Open Ports",
+    "command": "ss -tuln",
+    "description": "The 'ss -tuln' command displays open ports and their status.",
+    "example": "ss -tuln"
+  },
+  {
+    "id": 111,
+    "title": "Monitor Network Traffic",
+    "command": "iftop",
+    "description": "The 'iftop' command displays a real-time view of network traffic by connection.",
+    "example": "iftop"
+  },
+  {
+    "id": 112,
+    "title": "Block a Port with UFW",
+    "command": "ufw deny",
+    "description": "The 'ufw deny' command blocks access to a specific port.",
+    "example": "ufw deny 80"
+  },
+  {
+    "id": 113,
+    "title": "Allow a Port with UFW",
+    "command": "ufw allow",
+    "description": "The 'ufw allow' command opens access to a specific port.",
+    "example": "ufw allow 22"
+  },
+  {
+    "id": 114,
+    "title": "Enable UFW Firewall",
+    "command": "ufw enable",
+    "description": "The 'ufw enable' command activates the firewall rules.",
+    "example": "ufw enable"
+  },
+  {
+    "id": 115,
+    "title": "Disable UFW Firewall",
+    "command": "ufw disable",
+    "description": "The 'ufw disable' command deactivates the firewall.",
+    "example": "ufw disable"
+  },
+  {
+    "id": 116,
+    "title": "Check UFW Status",
+    "command": "ufw status",
+    "description": "The 'ufw status' command displays the current firewall status and rules.",
+    "example": "ufw status"
+  },
+  {
+    "id": 117,
+    "title": "Change Hostname",
+    "command": "hostnamectl set-hostname",
+    "description": "The 'hostnamectl set-hostname' command changes the system hostname.",
+    "example": "hostnamectl set-hostname newhostname"
+  },
+  {
+    "id": 118,
+    "title": "Check Hostname",
+    "command": "hostname",
+    "description": "The 'hostname' command displays the current system hostname.",
+    "example": "hostname"
+  },
+  {
+    "id": 119,
+    "title": "Set Timezone",
+    "command": "timedatectl set-timezone",
+    "description": "The 'timedatectl set-timezone' command sets the system timezone.",
+    "example": "timedatectl set-timezone America/New_York"
+  },
+  {
+    "id": 120,
+    "title": "Check Current Time",
+    "command": "date",
+    "description": "The 'date' command displays the current system date and time.",
+    "example": "date"
+  },
+  {
+    "id": 121,
+    "title": "Display Disk Partitions",
+    "command": "fdisk -l",
+    "description": "The 'fdisk -l' command lists all disk partitions.",
+    "example": "fdisk -l"
+  },
+  {
+    "id": 122,
+    "title": "Check File System Disk Space",
+    "command": "df -h",
+    "description": "The 'df -h' command shows file system disk space usage in human-readable format.",
+    "example": "df -h"
+  },
+  {
+    "id": 123,
+    "title": "Check Disk Usage by Directory",
+    "command": "du -sh",
+    "description": "The 'du -sh' command displays disk usage of a directory in human-readable format.",
+    "example": "du -sh /home"
+  },
+  {
+    "id": 124,
+    "title": "Unmount a File System",
+    "command": "umount",
+    "description": "The 'umount' command unmounts a file system.",
+    "example": "umount /mnt"
+  },
+  {
+    "id": 125,
+    "title": "Mount a File System",
+    "command": "mount",
+    "description": "The 'mount' command mounts a file system.",
+    "example": "mount /dev/sda1 /mnt"
+  },
+  {
+    "id": 126,
+    "title": "Display Block Devices",
+    "command": "lsblk",
+    "description": "The 'lsblk' command displays information about block devices.",
+    "example": "lsblk"
+  },
+  {
+    "id": 127,
+    "title": "Display Inode Information",
+    "command": "df -i",
+    "description": "The 'df -i' command displays inode usage of file systems.",
+    "example": "df -i"
+  },
+  {
+    "id": 128,
+    "title": "List Disk Usage for Files",
+    "command": "find / -type f -exec du -Sh {} + | sort -rh | head -n 10",
+    "description": "This command lists the top 10 largest files on the system.",
+    "example": "find / -type f -exec du -Sh {} + | sort -rh | head -n 10"
+  },
+  {
+    "id": 129,
+    "title": "Compress a File with Gzip",
+    "command": "gzip",
+    "description": "The 'gzip' command compresses files using the gzip algorithm.",
+    "example": "gzip filename"
+  },
+  {
+    "id": 130,
+    "title": "Uncompress a Gzip File",
+    "command": "gunzip",
+    "description": "The 'gunzip' command uncompresses files compressed by gzip.",
+    "example": "gunzip filename.gz"
+  },
+  {
+    "id": 131,
+    "title": "Create a Zip Archive",
+    "command": "zip",
+    "description": "The 'zip' command compresses files into a zip archive.",
+    "example": "zip archive.zip file1 file2"
+  },
+  {
+    "id": 132,
+    "title": "Extract a Zip Archive",
+    "command": "unzip",
+    "description": "The 'unzip' command extracts files from a zip archive.",
+    "example": "unzip archive.zip"
+  },
+  {
+    "id": 133,
+    "title": "Sync File Systems",
+    "command": "sync",
+    "description": "The 'sync' command ensures that all data in memory is written to disk.",
+    "example": "sync"
+  },
+  {
+    "id": 134,
+    "title": "Remove a Directory",
+    "command": "rmdir",
+    "description": "The 'rmdir' command removes an empty directory.",
+    "example": "rmdir /path/to/emptydir"
+  },
+  {
+    "id": 135,
+    "title": "Force Remove Files",
+    "command": "rm -rf",
+    "description": "The 'rm -rf' command forcefully removes files and directories.",
+    "example": "rm -rf /path/to/directory"
+  },
+  {
+    "id": 136,
+    "title": "Display Running Processes",
+    "command": "ps aux",
+    "description": "The 'ps aux' command lists all running processes.",
+    "example": "ps aux"
+  },
+  {
+    "id": 137,
+    "title": "Terminate a Process",
+    "command": "kill",
+    "description": "The 'kill' command sends a signal to terminate a process by PID.",
+    "example": "kill 12345"
+  },
+  {
+    "id": 138,
+    "title": "Display Process Tree",
+    "command": "pstree",
+    "description": "The 'pstree' command displays a tree of running processes.",
+    "example": "pstree"
+  },
+  {
+    "id": 139,
+    "title": "Monitor System in Real-Time",
+    "command": "top",
+    "description": "The 'top' command provides real-time system monitoring, including CPU and memory usage.",
+    "example": "top"
+  },
+  {
+    "id": 140,
+    "title": "Monitor Disk Activity",
+    "command": "iotop",
+    "description": "The 'iotop' command shows disk I/O usage by process.",
+    "example": "iotop"
+  },
+  {
+    "id": 141,
+    "title": "Monitor Memory Usage",
+    "command": "htop",
+    "description": "The 'htop' command is an interactive system-monitoring tool, showing real-time usage of CPU, memory, and processes.",
+    "example": "htop"
+  },
+  {
+    "id": 142,
+    "title": "Display User Information",
+    "command": "id",
+    "description": "The 'id' command displays user identity information, including UID and GID.",
+    "example": "id username"
+  },
+  {
+    "id": 143,
+    "title": "Display Last Logins",
+    "command": "last",
+    "description": "The 'last' command shows the last logged-in users.",
+    "example": "last"
+  },
+  {
+    "id": 144,
+    "title": "Show Current Users",
+    "command": "w",
+    "description": "The 'w' command displays a list of logged-in users and their activities.",
+    "example": "w"
+  },
+  {
+    "id": 145,
+    "title": "Log Out User",
+    "command": "pkill -KILL -u",
+    "description": "The 'pkill -KILL -u' command forces a user to log out by killing their session.",
+    "example": "pkill -KILL -u username"
+  },
+  {
+    "id": 146,
+    "title": "Display Environment Variables",
+    "command": "printenv",
+    "description": "The 'printenv' command displays all environment variables.",
+    "example": "printenv"
+  },
+  {
+    "id": 147,
+    "title": "Set Environment Variable",
+    "command": "export",
+    "description": "The 'export' command sets a new environment variable or modifies an existing one.",
+    "example": "export PATH=/usr/local/bin:$PATH"
+  },
+  {
+    "id": 148,
+    "title": "Show Available Shells",
+    "command": "chsh -l",
+    "description": "The 'chsh -l' command lists all available shells on the system.",
+    "example": "chsh -l"
+  },
+  {
+    "id": 149,
+    "title": "Change Default Shell",
+    "command": "chsh",
+    "description": "The 'chsh' command changes the default shell for the user.",
+    "example": "chsh -s /bin/bash"
+  },
+  {
+    "id": 150,
+    "title": "Run Command as Another User",
+    "command": "su",
+    "description": "The 'su' command switches to another user account to run commands.",
+    "example": "su - username"
+  }
+]
