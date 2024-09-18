@@ -4,7 +4,10 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
@@ -32,16 +35,36 @@ public class ComandAdapter extends RecyclerView.Adapter<ComandAdapter.CommandVie
         holder.titleTextView.setText(command.getTitle());
         holder.commandTextView.setText(command.getCommand());
 
-        // Show a popup on click with description and example
         holder.itemView.setOnClickListener(v -> {
-            android.app.AlertDialog.Builder dialog = new android.app.AlertDialog.Builder(context, R.style.CustomAlertDialogTheme);
+            // Inflate the custom dialog layout
+            LayoutInflater inflater = LayoutInflater.from(context);
+            View dialogView = inflater.inflate(R.layout.dialog, null);
 
-            dialog.setTitle(command.getTitle());
-            dialog.setMessage(command.getDescription() + "\n\nExample: " + command.getExample());
+            // Initialize views from the custom layout
+            TextView titleTextView = dialogView.findViewById(R.id.dialog_title);
+            TextView messageTextView = dialogView.findViewById(R.id.dialog_message);
+            Button addToFavoritesButton = dialogView.findViewById(R.id.add_to_favorites_button);
+            Button okButton = dialogView.findViewById(R.id.ok_button);
 
-            dialog.setPositiveButton("OK", (dialogInterface, which) -> {
-                // Handle OK button click
+            // Set dialog content
+            titleTextView.setText(command.getTitle());
+            messageTextView.setText(command.getDescription() + "\n\nExample: " + command.getExample());
+
+            // Create and show the dialog
+            android.app.AlertDialog.Builder dialogBuilder = new android.app.AlertDialog.Builder(context, R.style.CustomAlertDialogTheme);
+            dialogBuilder.setView(dialogView);
+
+            android.app.AlertDialog dialog = dialogBuilder.create();
+
+            // Handle "Add to Favorites" button click
+            addToFavoritesButton.setOnClickListener(v1 -> {
+                // Implement your favorite logic here
+                Toast.makeText(context, "Added to favorites", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
             });
+
+            // Handle "OK" button click
+            okButton.setOnClickListener(v1 -> dialog.dismiss());
 
             dialog.show();
         });
