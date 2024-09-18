@@ -9,4 +9,6 @@
     <string name="command">Command</string>
     <string name="title">Title</string>
     <string name="search">Search</string>
+    <string name="dont_have_an_account">Dont Have An Account ?</string>
+    <string name="appName">EASY<font color="#5a4da3">Linux</font></string>
 </resources>
