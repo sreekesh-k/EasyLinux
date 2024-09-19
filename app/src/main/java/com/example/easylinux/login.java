@@ -74,7 +74,7 @@ public class login extends AppCompatActivity {
                 //displays SuccessLoginActivity on successful login
                 Intent i = new Intent(login.this, menu.class);
                 //pass the username to  SuccessLoginActivity to display, as key-value pair
-                i.putExtra("USERNAME",username);
+                i.putExtra("username",username);
                 startActivity(i);
             }
             else

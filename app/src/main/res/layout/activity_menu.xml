@@ -46,6 +46,7 @@
         android:layout_margin="8dp"
         android:backgroundTint="@color/secondary"
         android:text="@string/search"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/searchView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/searchView" />
