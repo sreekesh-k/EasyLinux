@@ -47,12 +47,15 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:autoLink="web"
         android:fontFamily="@font/poppins_bold"
         android:text="@string/appName"
+        android:textAlignment="center"
         android:textColor="#B1B0B0"
+        android:textIsSelectable="true"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

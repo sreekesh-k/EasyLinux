@@ -99,28 +99,28 @@ public class favorites extends Fragment {
         displayFavoriteCommands(username);
     }
     // Method to fetch favorite commands for the logged-in user
+
     private void displayFavoriteCommands(String username) {
         // Get favorite command IDs for the user from the database
         List<Integer> favoriteCommandIds = favHelper.getFavoriteCommandIds(username);
 
-        // If the user has favorite commands, fetch and display them
-        if (favoriteCommandIds != null && !favoriteCommandIds.isEmpty()) {
-            List<Comands> favoriteCommands = new ArrayList<>();
+        // Create a new list to hold favorite commands
+        List<Comands> favoriteCommands = new ArrayList<>();
 
-            // Iterate through the original command list and add favorites to the list
-            for (Comands command : commandList) {
-                if (favoriteCommandIds.contains(command.getId())) {
-                    favoriteCommands.add(command);
-                }
+        // Iterate through the original command list and add favorites to the list
+        for (Comands command : commandList) {
+            if (favoriteCommandIds.contains(command.getId())) {
+                favoriteCommands.add(command);
             }
+        }
 
-            // Update the RecyclerView with the filtered favorite commands list
-            adapter.updateList(favoriteCommands);
-        } else {
-            // Show a message if there are no favorite commands
+        // Update the RecyclerView with the filtered favorite commands list
+        if (favoriteCommands.isEmpty()) {
             Toast.makeText(getActivity(), "No favorite commands found!", Toast.LENGTH_SHORT).show();
         }
+        adapter.updateList(favoriteCommands);
     }
+
 
     // Handle the logout functionality
     private void logout() {
