@@ -80,7 +80,7 @@
             android:layout_marginStart="8dp"
             android:layout_weight="1"
             android:fontFamily="@font/poppins_bold"
-            android:text="Welcome Sreekesh"
+            android:text="@string/welcome_sreekesh"
             android:textColor="@color/white" />
 
         <Button
@@ -95,7 +95,7 @@
             android:paddingTop="0dp"
             android:paddingRight="0dp"
             android:paddingBottom="0dp"
-            android:text="Logout"
+            android:text="@string/logout"
             android:textAlignment="viewEnd"
             android:textColor="@color/secondary"
             app:icon="@android:drawable/ic_menu_set_as"
