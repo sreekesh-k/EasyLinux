@@ -1,11 +1,13 @@
 package com.example.easylinux;
 
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import android.os.Bundle;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import org.json.JSONArray;
@@ -43,6 +45,11 @@ public class menu extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         searchView = findViewById(R.id.searchView);
         searchButton = findViewById(R.id.searchButton);
+
+        EditText searchEditText = searchView.findViewById(androidx.appcompat.R.id.search_src_text);
+        searchEditText.setTextColor(ContextCompat.getColor(this, R.color.white));  // Change text color
+        searchEditText.setHintTextColor(ContextCompat.getColor(this, R.color.secondary));  // Change hint color
+
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

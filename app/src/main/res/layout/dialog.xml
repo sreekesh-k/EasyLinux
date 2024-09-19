@@ -29,13 +29,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="@string/add_to_favorites" />
+        android:text="@string/add_to_favorites"
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/ok_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:backgroundTint="@color/secondary"
         android:fontFamily="@font/poppins_bold"
         android:text="@string/ok"
         android:textColor="@color/white" />
