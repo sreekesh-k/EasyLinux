@@ -23,15 +23,15 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-
 public class favorites extends Fragment {
 
     private RecyclerView recyclerView;
     private ComandAdapter adapter;
     private List<Comands> commandList = new ArrayList<>();
     private TextView welcomeText;
-    private Button logoutButton;
-
+    private Button logoutButton, refreshButton;
+    private FavHelper favHelper;  // For database interaction
+    private String username;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -41,27 +41,30 @@ public class favorites extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerView2);
         welcomeText = view.findViewById(R.id.welcomename);
         logoutButton = view.findViewById(R.id.button);
+        refreshButton = view.findViewById(R.id.button1);
+        favHelper = new FavHelper(getActivity());  // Initialize database helper
 
         // Get the username from SharedPreferences and display it
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Session", getActivity().MODE_PRIVATE);
-        String username = sharedPreferences.getString("username", "User");
-        String text = "Hi " + username + "! these are your favorite Commands";
+        username = sharedPreferences.getString("username", "User");
+        String text = "Hi " + username + "! These are your favorite Commands";
         text = text.toUpperCase();
         welcomeText.setText(text);
-
+        loadJsonFromAsset();
         // Set up the RecyclerView with a LinearLayoutManager and Adapter
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        loadJsonFromAsset();  // Load the commands from the JSON file
         adapter = new ComandAdapter(getActivity(), commandList);
         recyclerView.setAdapter(adapter);
 
+        // Fetch and display favorite commands for the current user
+        displayFavoriteCommands(username);
+
         // Set up the logout functionality
         logoutButton.setOnClickListener(v -> logout());
-
+        refreshButton.setOnClickListener(v -> refresh());
         return view;
     }
 
-    // Load JSON data from the assets folder (similarly to the previous code)
     private void loadJsonFromAsset() {
         try {
             InputStream is = getActivity().getAssets().open("comands.json");
@@ -89,6 +92,33 @@ public class favorites extends Fragment {
 
         } catch (Exception e) {
             Toast.makeText(getActivity(), "Error loading JSON", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void refresh(){
+        displayFavoriteCommands(username);
+    }
+    // Method to fetch favorite commands for the logged-in user
+    private void displayFavoriteCommands(String username) {
+        // Get favorite command IDs for the user from the database
+        List<Integer> favoriteCommandIds = favHelper.getFavoriteCommandIds(username);
+
+        // If the user has favorite commands, fetch and display them
+        if (favoriteCommandIds != null && !favoriteCommandIds.isEmpty()) {
+            List<Comands> favoriteCommands = new ArrayList<>();
+
+            // Iterate through the original command list and add favorites to the list
+            for (Comands command : commandList) {
+                if (favoriteCommandIds.contains(command.getId())) {
+                    favoriteCommands.add(command);
+                }
+            }
+
+            // Update the RecyclerView with the filtered favorite commands list
+            adapter.updateList(favoriteCommands);
+        } else {
+            // Show a message if there are no favorite commands
+            Toast.makeText(getActivity(), "No favorite commands found!", Toast.LENGTH_SHORT).show();
         }
     }
 

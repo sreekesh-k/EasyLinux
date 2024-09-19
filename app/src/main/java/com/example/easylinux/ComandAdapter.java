@@ -1,6 +1,7 @@
 package com.example.easylinux;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +29,6 @@ public class ComandAdapter extends RecyclerView.Adapter<ComandAdapter.CommandVie
         View view = LayoutInflater.from(context).inflate(R.layout.comands, parent, false);
         return new CommandViewHolder(view);
     }
-
     @Override
     public void onBindViewHolder(@NonNull CommandViewHolder holder, int position) {
         Comands command = commandList.get(position);
@@ -58,8 +58,17 @@ public class ComandAdapter extends RecyclerView.Adapter<ComandAdapter.CommandVie
 
             // Handle "Add to Favorites" button click
             addToFavoritesButton.setOnClickListener(v1 -> {
-                // Implement your favorite logic here
+                // Implement the favorite logic here
+                FavHelper favHelper = new FavHelper(context);
+
+                // Get the username from SharedPreferences
+                SharedPreferences sharedPreferences = context.getSharedPreferences("Session", Context.MODE_PRIVATE);
+                String username = sharedPreferences.getString("username", "User");
+
+                // Add the command to favorites in the database
+                favHelper.addFavorite(username, command.getId());
                 Toast.makeText(context, "Added to favorites", Toast.LENGTH_SHORT).show();
+
                 dialog.dismiss();
             });
 
@@ -69,6 +78,7 @@ public class ComandAdapter extends RecyclerView.Adapter<ComandAdapter.CommandVie
             dialog.show();
         });
     }
+
 
     @Override
     public int getItemCount() {

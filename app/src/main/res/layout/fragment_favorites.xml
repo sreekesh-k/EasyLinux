@@ -32,26 +32,55 @@
             android:textColor="@color/white"
             android:textSize="24sp" />
 
-        <Button
-            android:id="@+id/button"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="#00FFFFFF"
-            android:fontFamily="@font/poppins_bold"
-            android:onClick="logout"
-            android:paddingLeft="0dp"
-            android:paddingTop="0dp"
-            android:paddingRight="0dp"
-            android:paddingBottom="0dp"
-            android:text="@string/logout"
-            android:textAlignment="center"
-            android:textColor="@color/secondary"
-            app:icon="@android:drawable/ic_menu_set_as"
-            app:iconGravity="textEnd"
-            app:iconPadding="0dp"
-            app:iconSize="20sp"
-            app:iconTint="@color/secondary" />
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#00FFFFFF"
+                android:fontFamily="@font/poppins_bold"
+                android:paddingLeft="0dp"
+                android:paddingTop="0dp"
+                android:paddingRight="0dp"
+                android:paddingBottom="0dp"
+                android:text="@string/refresh"
+                android:textAlignment="center"
+                android:textColor="@color/secondary"
+                app:icon="@android:drawable/ic_popup_sync"
+                app:iconGravity="textEnd"
+                app:iconPadding="0dp"
+                app:iconSize="20sp"
+                app:iconTint="@color/secondary" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#00FFFFFF"
+                android:fontFamily="@font/poppins_bold"
+                android:onClick="logout"
+                android:paddingLeft="0dp"
+                android:paddingTop="0dp"
+                android:paddingRight="0dp"
+                android:paddingBottom="0dp"
+                android:text="@string/logout"
+                android:textAlignment="center"
+                android:textColor="@color/secondary"
+                app:icon="@android:drawable/ic_menu_set_as"
+                app:iconGravity="textEnd"
+                app:iconPadding="0dp"
+                app:iconSize="20sp"
+                app:iconTint="@color/secondary" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
 
