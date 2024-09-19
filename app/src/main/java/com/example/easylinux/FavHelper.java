@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class FavHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "favorites.db";
@@ -24,7 +23,6 @@ public class FavHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Create the favorites table
         String CREATE_FAVORITES_TABLE = "CREATE TABLE " + TABLE_FAVORITES + "("
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + COLUMN_USERNAME + " TEXT,"
@@ -35,49 +33,46 @@ public class FavHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Drop older table if exists
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_FAVORITES);
         onCreate(db);
     }
 
-    // Add command to favorites
     public void addFavorite(String username, int commandId) {
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_USERNAME, username);
-        values.put(COLUMN_COMMAND_ID, commandId);
+        db.beginTransaction();
+        try {
+            ContentValues values = new ContentValues();
+            values.put(COLUMN_USERNAME, username);
+            values.put(COLUMN_COMMAND_ID, commandId);
 
-        db.insert(TABLE_FAVORITES, null, values);
-        db.close();
+            db.insert(TABLE_FAVORITES, null, values);
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+            db.close();
+        }
     }
 
-    // Get all favorite commands for a specific user
-    public Cursor getFavoritesForUser(String username) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        return db.query(TABLE_FAVORITES, new String[]{COLUMN_COMMAND_ID},
-                COLUMN_USERNAME + "=?",
-                new String[]{username}, null, null, null);
-    }
-
-
-    // Method to remove a command from favorites
     public void removeFavorite(String username, int commandId) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_FAVORITES, COLUMN_USERNAME + "=? AND " + COLUMN_COMMAND_ID + "=?",
-                new String[]{username, String.valueOf(commandId)});
-        db.close();
+        db.beginTransaction();
+        try {
+            db.delete(TABLE_FAVORITES, COLUMN_USERNAME + "=? AND " + COLUMN_COMMAND_ID + "=?",
+                    new String[]{username, String.valueOf(commandId)});
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+            db.close();
+        }
     }
 
-    // Method to get favorite command IDs for a specific user
     public List<Integer> getFavoriteCommandIds(String username) {
         List<Integer> favoriteCommandIds = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
-        // Query the database to get the command IDs for the given username
         Cursor cursor = db.query(TABLE_FAVORITES, new String[]{COLUMN_COMMAND_ID},
                 COLUMN_USERNAME + "=?", new String[]{username}, null, null, null);
 
-        // Iterate through the results and add the command IDs to the list
         if (cursor != null && cursor.moveToFirst()) {
             do {
                 int commandId = cursor.getInt(cursor.getColumnIndex(COLUMN_COMMAND_ID));
@@ -86,8 +81,18 @@ public class FavHelper extends SQLiteOpenHelper {
 
             cursor.close();
         }
-
         db.close();
         return favoriteCommandIds;
+    }
+
+    public boolean isFavorite(String username, int commandId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_FAVORITES, new String[]{COLUMN_COMMAND_ID},
+                COLUMN_USERNAME + "=? AND " + COLUMN_COMMAND_ID + "=?",
+                new String[]{username, String.valueOf(commandId)}, null, null, null);
+        boolean isFavorite = cursor.getCount() > 0;
+        cursor.close();
+        db.close();
+        return isFavorite;
     }
 }

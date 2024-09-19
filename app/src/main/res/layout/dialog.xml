@@ -33,6 +33,17 @@
         android:textColor="@color/primary" />
 
     <Button
+        android:id="@+id/remove_from_favorites_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
+        android:backgroundTint="@color/secondary"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/remove_from_favorites"
+        android:textColor="@color/primary" />
+
+    <Button
         android:id="@+id/ok_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
