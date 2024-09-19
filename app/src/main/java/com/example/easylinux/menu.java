@@ -1,6 +1,9 @@
 package com.example.easylinux;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -36,7 +39,7 @@ public class menu extends AppCompatActivity {
     private List<Comands> filteredList = new ArrayList<>();
     private SearchView searchView;
     private Button searchButton;
-
+    private TextView welcome ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,12 +48,14 @@ public class menu extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         searchView = findViewById(R.id.searchView);
         searchButton = findViewById(R.id.searchButton);
-
+        welcome = findViewById(R.id.welcomename);
         EditText searchEditText = searchView.findViewById(androidx.appcompat.R.id.search_src_text);
         searchEditText.setTextColor(ContextCompat.getColor(this, R.color.white));  // Change text color
         searchEditText.setHintTextColor(ContextCompat.getColor(this, R.color.secondary));  // Change hint color
 
-
+        Intent intent = getIntent();
+        String username = intent.getStringExtra("username");
+        welcome.setText("Welcome Back " + username );
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         loadJsonFromAsset();
@@ -76,6 +81,19 @@ public class menu extends AppCompatActivity {
         });
     }
 
+    public void logout(View v){
+        SharedPreferences sharedPreferences = getSharedPreferences("Session", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove("username");  // Remove the stored username
+        editor.apply();
+
+        // Redirect to MainActivity (login screen)
+        Toast.makeText(menu.this,"Logout Success",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(menu.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+
+    }
     private void filterCommands(String query) {
         if (query == null || query.isEmpty()) {
             adapter.updateList(commandList);

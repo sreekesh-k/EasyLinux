@@ -49,8 +49,9 @@ public class DbHandler extends SQLiteOpenHelper {
     }
 
     //function to add a new user by inserting values into the table
-    public void addNewUser(String uname, String pwd)
+    public String addNewUser(String uname, String pwd)
     {
+        String msg = "";
         //creating a variable for ur sqlite database and calling writable method
         // as we are writing data in our database.
         SQLiteDatabase db=this.getWritableDatabase();
@@ -60,11 +61,16 @@ public class DbHandler extends SQLiteOpenHelper {
         //passing key-value pairs
         values.put(USERNAME,uname);
         values.put(PASSWORD,pwd);
-
+        if(checkEmailPassword(uname,pwd))
+            msg = "UserName Already Exists";
         //pass content values to our table.
-        db.insert(TABLE_NAME,null,values);
+        else {
+            db.insert(TABLE_NAME, null, values);
+            msg = "Registration Success";
+        }
         //close db
         db.close();
+        return msg;
     }
 
     //This method checks the username and password are matching during login

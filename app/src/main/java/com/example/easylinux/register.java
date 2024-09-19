@@ -47,10 +47,10 @@ public class register extends AppCompatActivity {
         String user_pwd=edit2.getText().toString();
 
         //call the addNewUser of DBHandler class
-        dbHandler.addNewUser(user_uname,user_pwd);
+        String msg = dbHandler.addNewUser(user_uname,user_pwd);
 
         //print a toast
-        Toast.makeText(register.this,"NEW USER ADDED",Toast.LENGTH_LONG).show();
+        Toast.makeText(register.this,msg,Toast.LENGTH_LONG).show();
 
         //clear the EditTexts after user is added
         edit1.setText("");
