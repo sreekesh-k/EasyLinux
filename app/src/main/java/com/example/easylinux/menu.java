@@ -50,7 +50,7 @@ public class menu extends AppCompatActivity {
         TextView textView = findViewById(R.id.textView);
         textView.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse("https://sreekeshkprabhu.me")); // Set your URL here
+            intent.setData(Uri.parse("https://sreekeshkprabhu.me"));
             startActivity(intent);
         });
 

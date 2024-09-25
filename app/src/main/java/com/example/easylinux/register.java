@@ -55,6 +55,7 @@ public class register extends AppCompatActivity {
         //clear the EditTexts after user is added
         edit1.setText("");
         edit2.setText("");
+        finish();
     }
     //onclick method for back to home button
     public void backtohome(View v)
@@ -62,5 +63,6 @@ public class register extends AppCompatActivity {
         //clicking on BACK TO HOME launches MainActivity
         Intent i = new Intent(register.this,MainActivity.class);
         startActivity(i);
+        finish();
     }
 }

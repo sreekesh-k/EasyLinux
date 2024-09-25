@@ -71,11 +71,10 @@ public class login extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("username", username);
                 editor.apply();
-                //displays SuccessLoginActivity on successful login
                 Intent i = new Intent(login.this, menu.class);
-                //pass the username to  SuccessLoginActivity to display, as key-value pair
                 i.putExtra("username",username);
                 startActivity(i);
+                finish();
             }
             else
             {
